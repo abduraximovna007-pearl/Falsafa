@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Falsafa Bellashuvi — Intellektual Viktorina</title>
+  <meta name="description" content="Falsafa Bellashuvi — 10-mavzu 'Inson falsafasi' asosida 18 ishtirokchi o'rtasidagi intellektual viktorina va buyuk mutafakkirlar merosi."/>
+
+  <!-- Google Fonts: Cormorant Garamond (refined serif) & Plus Jakarta Sans (clean sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F6F1E7',
+            sand: '#EDE4D3',
+            'sand-light': '#F5EFE6',
+            'sand-dark': '#DFCEB7',
+            ink: '#1F2A36',
+            'ink-muted': '#536476',
+            terracotta: '#B5654A',
+            'terracotta-dark': '#964E37',
+            'terracotta-light': '#F8EFEA',
+            sage: '#8FA596',
+            'sage-dark': '#6B8473',
+            'sage-light': '#E4ECE6',
+            gold: '#C5993B',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'warm': '0 10px 30px -10px rgba(31, 42, 54, 0.08), 0 4px 12px -2px rgba(31, 42, 54, 0.04)',
+            'card': '0 4px 20px -2px rgba(181, 101, 74, 0.07), 0 2px 8px -1px rgba(31, 42, 54, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-ivory: #F6F1E7;
+      --card-sand: #EDE4D3;
+      --ink: #1F2A36;
+      --terracotta: #B5654A;
+      --sage: #8FA596;
+    }
+
+    body {
+      background-color: var(--bg-ivory);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      background-image: radial-gradient(#DECDB5 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+    }
+
+    .font-serif-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Custom subtle transitions */
+    .fade-in {
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shuffle Roulette Animation */
+    @keyframes subtlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.035); }
+    }
+    .animate-shuffle {
+      animation: subtlePulse 0.1s ease-in-out infinite;
+    }
+
+    /* Result Sticker Wobble (cute organic motion for 0/3) */
+    @keyframes gentleWobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-2.5deg); }
+      75% { transform: rotate(2.5deg); }
+    }
+    .sticker-wobble {
+      animation: gentleWobble 2.8s ease-in-out infinite;
+    }
+
+    /* Sticker Bounce In */
+    @keyframes stampIn {
+      0% { opacity: 0; transform: scale(0.7) rotate(-6deg); }
+      60% { opacity: 1; transform: scale(1.05) rotate(1deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    .sticker-stamp {
+      animation: stampIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Canvas Confetti */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-ivory text-ink antialiased selection:bg-terracotta selection:text-white flex flex-col justify-between">
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ============================================================== -->
+  <!-- TOP NAVIGATION / BRAND BAR (Widescreen Adaptive) -->
+  <!-- ============================================================== -->
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-sand-dark/70 py-3.5 px-4 sm:px-6 lg:px-8 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#hero-section" class="w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center font-serif text-2xl font-bold shadow-sm hover:scale-105 active:scale-95 transition-transform" title="Falsafa (Phi)">
+          Φ
+        </a>
+        <div>
+          <h1 class="font-serif-title font-bold text-xl leading-tight tracking-wide text-ink">Falsafa Bellashuvi</h1>
+          <p class="text-[11px] uppercase tracking-wider text-ink-muted/90 font-medium">10-mavzu: Inson falsafasi</p>
+        </div>
+      </div>
+
+      <!-- Center status pill (hidden on small screens) -->
+      <div class="hidden md:flex items-center gap-3">
+        <span class="text-xs px-3.5 py-1 rounded-full bg-sand/80 text-ink-muted font-medium border border-sand-dark/60">
+          🏛️ 9 Buyuk Mutafakkir
+        </span>
+        <span class="text-xs px-3.5 py-1 rounded-full bg-sand/80 text-ink-muted font-medium border border-sand-dark/60">
+          👥 18 Ishtirokchi
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <!-- Sound Mute/Unmute Toggle -->
+        <button id="sound-toggle-btn" onclick="toggleSound()" class="w-9 h-9 rounded-full bg-sand hover:bg-sand-dark/80 text-ink flex items-center justify-center text-sm border border-sand-dark transition-colors shadow-2xs" title="Ovozni yoqish / o'chirish">
+          <span id="sound-icon">🔔</span>
+        </button>
+
+        <!-- Progress Badge -->
+        <span id="nav-badge" class="text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-full bg-sand text-terracotta border border-sand-dark shadow-2xs">
+          0 / 18 Qatnashdi
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- MAIN FULL-SCREEN CONTAINER (Adaptive max-w-7xl) -->
+  <!-- ============================================================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-6 space-y-16 flex-1 w-full">
+
+    <!-- ============================================================ -->
+    <!-- 1. HEADER / HERO SECTION -->
+    <!-- ============================================================ -->
+    <section id="hero-section" class="pt-2 pb-4 text-center space-y-5">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand text-terracotta text-xs sm:text-sm font-semibold border border-sand-dark shadow-xs">
+        <span>✦</span> 10-mavzu: Inson falsafasi (Falsafiy antropologiya)
+      </div>
+
+      <h1 class="font-serif-title text-4xl sm:text-6xl lg:text-7xl font-bold text-ink tracking-tight leading-tight">
+        Falsafa Bellashuvi
+      </h1>
+
+      <div class="w-20 h-1 bg-terracotta mx-auto rounded-full"></div>
+
+      <!-- Engaging Quote Card (Full & wide) -->
+      <div class="max-w-4xl mx-auto relative bg-sand/65 p-6 sm:p-8 rounded-3xl border border-sand-dark shadow-warm text-left">
+        <span class="font-serif text-5xl text-terracotta/35 leading-none select-none block mb-1">“</span>
+        <p class="font-serif italic text-lg sm:text-xl lg:text-2xl text-ink/90 leading-relaxed pl-4 pr-3">
+          Falsafa — donolikka bo'lgan muhabbat degani. Bu so'z qadimgi yunon tilidagi 'philo' (sevgi) va 'sophia' (donolik) so'zlaridan kelib chiqqan. Falsafa bizga savol berishni o'rgatadi: nima haqiqat, nima adolat, inson nima uchun yashaydi?
+        </p>
+        <span class="font-serif text-5xl text-terracotta/35 leading-none select-none text-right block mt-1">”</span>
+      </div>
+
+      <!-- Action Button -->
+      <div class="pt-2 flex justify-center gap-4">
+        <button onclick="scrollToGame()" class="group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-terracotta hover:bg-terracotta-dark text-white font-semibold text-base sm:text-lg shadow-warm hover:shadow-lg transition-all transform active:scale-95">
+          <span>Boshlash</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2. FAMOUS THINKERS SHOWCASE (Wide Desktop 2-Column Layout) -->
+    <!-- ============================================================ -->
+    <section id="thinkers-section" class="space-y-5">
+      <div class="flex items-end justify-between border-b border-sand-dark pb-3">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-terracotta font-bold">Tafakkur durdonalari</span>
+          <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-ink">Buyuk Mutafakkirlar</h2>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-ink-muted">
+          <span id="thinker-index-label" class="font-bold text-terracotta font-serif text-2xl">1</span>
+          <span class="text-ink-muted/50">/</span>
+          <span class="font-semibold text-base">9</span>
+        </div>
+      </div>
+
+      <!-- Widescreen Responsive Showcase Container -->
+      <div class="bg-sand/75 rounded-3xl p-6 sm:p-8 lg:p-10 border border-sand-dark shadow-warm">
+        
+        <div id="thinker-card" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-opacity duration-300">
+          
+          <!-- Left Column: 4:5 Large Portrait Card (col-span-5) -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden bg-sand-dark border-2 border-sand-dark shadow-md group">
+              <!-- Replaceable Thinker Image -->
+              <img id="thinker-image" 
+                   src="Lao-szi.jpg" 
+                   alt="Mutafakkir surati" 
+                   class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                   onerror="handleImageError(this)"/>
+
+              <!-- Fallback neutral sand-colored box if image missing -->
+              <div id="thinker-image-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-sand-dark text-ink-muted">
+                <span class="text-5xl mb-2">🏛️</span>
+                <span class="text-sm font-serif uppercase tracking-wider font-bold text-ink">Mutafakkir Portreti</span>
+                <span id="thinker-fallback-name" class="text-xs text-ink/70 mt-1 italic">Surat joyi</span>
+                <label class="mt-4 text-xs px-4 py-1.5 bg-ivory rounded-full text-terracotta font-medium cursor-pointer border border-sand hover:bg-sand-light transition-colors">
+                  Rasm yuklash
+                  <input type="file" accept="image/*" class="hidden" onchange="uploadThinkerImage(event)"/>
+                </label>
+              </div>
+
+              <!-- Number Tag Badge -->
+              <div class="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-ink/80 backdrop-blur-sm text-ivory text-xs font-bold tracking-wider shadow-sm">
+                № <span id="thinker-tag-num">1</span>
+              </div>
+
+              <!-- Image Uploader Button (Quick replace) -->
+              <label class="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-ivory/85 backdrop-blur-sm hover:bg-ivory text-ink flex items-center justify-center cursor-pointer shadow-sm transition-all" title="Ushbu mutafakkirga yangi surat yuklash">
+                <svg class="w-4 h-4 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <input type="file" accept="image/*" class="hidden" onchange="uploadThinkerImage(event)"/>
+              </label>
+            </div>
+          </div>
+
+          <!-- Right Column: Biography, Quote & Nav Controls (col-span-7) -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ivory text-terracotta text-xs font-bold uppercase tracking-wider mb-2 border border-sand-dark">
+                <span id="thinker-badge-school">Daosizm ta'limoti</span>
+              </div>
+              <h3 id="thinker-name" class="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
+                Lao Szi
+              </h3>
+              <p id="thinker-bio" class="text-sm sm:text-base text-ink-muted mt-1 font-medium leading-relaxed">
+                Qadimgi Xitoy faylasufi, Daosizm ta'limoti asoschisi
+              </p>
+            </div>
+
+            <!-- Quote in Quotation Marks -->
+            <div class="bg-ivory/80 p-6 sm:p-7 rounded-2xl border border-sand-dark relative shadow-xs">
+              <span class="font-serif text-5xl text-terracotta/35 leading-none select-none block mb-1">“</span>
+              <p id="thinker-quote" class="font-serif italic text-xl sm:text-2xl text-ink/90 leading-snug pl-3 pr-2">
+                Boshqalarni biluvchi – oqil, o‘zini biluvchi – donishmanddir.
+              </p>
+              <span class="font-serif text-5xl text-terracotta/35 leading-none select-none text-right block mt-1">”</span>
+            </div>
+
+            <!-- Controls: Nav Arrows & 9 Indicator Dots -->
+            <div class="pt-2 flex items-center justify-between sm:justify-start gap-4">
+              <button onclick="prevThinker()" aria-label="Oldingi mutafakkir" class="w-12 h-12 rounded-full bg-ivory text-ink hover:bg-terracotta hover:text-white border border-sand-dark transition-all flex items-center justify-center active:scale-95 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+
+              <!-- 9 Indicators Dots -->
+              <div id="carousel-dots" class="flex items-center gap-2 px-2">
+                <!-- Rendered dynamically by JS -->
+              </div>
+
+              <button onclick="nextThinker()" aria-label="Keyingi mutafakkir" class="w-12 h-12 rounded-full bg-ivory text-ink hover:bg-terracotta hover:text-white border border-sand-dark transition-all flex items-center justify-center active:scale-95 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. PARTICIPANT PICKER (Widescreen 2-Column Grid Layout) -->
+    <!-- ============================================================ -->
+    <section id="participant-section" class="scroll-mt-20 space-y-5">
+      <div class="flex items-end justify-between border-b border-sand-dark pb-3">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-sage-dark font-bold">Navbatdagi bosqich</span>
+          <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-ink">Ishtirokchini tanlang</h2>
+        </div>
+        <div class="text-sm bg-sage/20 text-ink font-semibold px-4 py-1.5 rounded-full border border-sage/40 shadow-2xs">
+          Qatnashdi: <span id="played-count" class="font-bold text-terracotta">0</span> / 18
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Side: Selection Roulette & Control Box (lg:col-span-5) -->
+        <div class="lg:col-span-5 bg-sand/70 rounded-3xl p-6 sm:p-8 border border-sand-dark shadow-warm text-center space-y-6">
+          
+          <div class="py-8 px-6 bg-ivory rounded-2xl border border-sand-dark shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-ink-muted mb-2 font-bold">Navbatdagi ishtirokchi</p>
+            <div id="selected-participant-name" class="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-bold text-terracotta min-h-[58px] flex items-center justify-center transition-all">
+              (Tasodifiy tanlashni bosing)
+            </div>
+            <p id="pool-remaining-note" class="text-xs sm:text-sm text-ink-muted mt-2 font-medium">Hali 18 nafar ishtirokchi kutmoqda</p>
+          </div>
+
+          <!-- Buttons Container -->
+          <div class="space-y-3.5">
+            <button id="btn-random-pick" onclick="pickRandomParticipant()" class="w-full py-4 px-6 rounded-2xl bg-terracotta hover:bg-terracotta-dark text-white font-semibold text-base sm:text-lg shadow-warm hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-98">
+              <svg class="w-5 h-5 animate-spin-reverse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              <span class="tracking-wide">Tasodifiy tanlash</span>
+            </button>
+
+            <button id="btn-start-test" onclick="startTestForParticipant()" class="hidden w-full py-4 px-6 rounded-2xl bg-sage-dark hover:bg-sage text-white font-semibold text-base sm:text-lg shadow-warm hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-98">
+              <span>Testni boshlash (3 ta savol)</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Complete 18 Participants Roster Grid (lg:col-span-7) -->
+        <div class="lg:col-span-7 bg-sand/60 rounded-3xl p-6 sm:p-8 border border-sand-dark shadow-warm space-y-4">
+          <div class="flex items-center justify-between border-b border-sand-dark/60 pb-3">
+            <div>
+              <h3 class="font-serif-title font-bold text-xl sm:text-2xl text-ink">Barcha ishtirokchilar ro'yxati</h3>
+              <p class="text-xs text-ink-muted">Har bir ishtirokchi o'yinda 1 marotaba qatnashadi</p>
+            </div>
+            <span id="chips-count-badge" class="px-3 py-1 rounded-full bg-ivory text-xs font-mono font-bold text-terracotta border border-sand-dark">
+              18 ta qoldi
+            </span>
+          </div>
+
+          <!-- 18 Cards Responsive Grid -->
+          <div id="participant-cards-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. TEST SECTION (1-Oson, 2-O'rtacha, 3-Mantiqiy) -->
+    <!-- ============================================================ -->
+    <section id="test-section" class="hidden scroll-mt-20 space-y-5 fade-in">
+      <div class="flex flex-wrap items-center justify-between border-b border-sand-dark pb-3 gap-3">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-terracotta font-bold">10-mavzu asosidagi test sinovi</span>
+          <h2 id="test-player-name" class="font-serif-title text-2xl sm:text-4xl font-bold text-ink">Ishtirokchi</h2>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <!-- Live Timer -->
+          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-sand text-ink text-sm font-mono font-bold border border-sand-dark shadow-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-terracotta animate-pulse"></span>
+            <span id="test-timer">00:00</span>
+          </div>
+          
+          <!-- Difficulty Level Badge -->
+          <span id="test-difficulty-pill" class="text-xs sm:text-sm px-4 py-2 rounded-full bg-sage-light text-sage-dark font-bold border border-sage/40">
+            🟢 1-savol: Oson
+          </span>
+        </div>
+      </div>
+
+      <!-- Test Question Card -->
+      <div class="bg-sand/75 rounded-3xl p-6 sm:p-10 border border-sand-dark shadow-warm space-y-6">
+        
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs uppercase tracking-wider text-ink-muted font-bold">
+              Savol matni va falsafiy mulohaza:
+            </span>
+            <span id="test-step-indicator" class="text-xs font-mono text-terracotta font-bold">
+              1 / 3
+            </span>
+          </div>
+
+          <div class="bg-ivory p-6 sm:p-8 rounded-2xl border border-sand-dark relative shadow-xs">
+            <p id="question-text" class="font-serif text-xl sm:text-2xl text-ink leading-relaxed font-semibold">
+              ...
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 Big Tappable Option Buttons -->
+        <div id="options-container" class="space-y-3.5">
+          <!-- Big tappable buttons generated here -->
+        </div>
+
+        <!-- Instant Feedback Box -->
+        <div id="test-feedback-box" class="hidden p-5 rounded-2xl text-center text-base font-semibold transition-all shadow-sm">
+          <!-- Feedback message -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. RESULT STICKERS SECTION (Shown after 3 questions) -->
+    <!-- ============================================================ -->
+    <section id="result-section" class="hidden scroll-mt-20 space-y-5 fade-in">
+      <div class="text-center border-b border-sand-dark pb-3">
+        <span class="text-xs uppercase tracking-wider text-terracotta font-bold">Sinov yakuni</span>
+        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-ink">Natija Belgisi</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-sand/70 rounded-3xl p-8 sm:p-12 border border-sand-dark shadow-warm text-center space-y-6">
+        
+        <!-- Illustrated Sticker Badge -->
+        <div id="sticker-badge-container" class="sticker-stamp relative max-w-md mx-auto p-8 rounded-3xl border-2 shadow-lg transition-all">
+          
+          <div id="sticker-badge-art" class="w-28 h-28 mx-auto mb-3 flex items-center justify-center">
+            <!-- Dynamic Illustrated Icon -->
+          </div>
+
+          <div id="sticker-badge-word" class="font-serif-title text-4xl sm:text-5xl font-bold tracking-tight mb-1">
+            Zo'r!
+          </div>
+
+          <p id="sticker-badge-user" class="text-xl font-bold text-ink mb-1.5">Ishtirokchi</p>
+          
+          <div id="sticker-badge-score" class="inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs">
+            3 / 3 Ball
+          </div>
+
+          <p id="sticker-badge-time" class="text-xs sm:text-sm text-ink-muted mt-3 font-mono font-medium">Vaqt sarfi: 00:24</p>
+        </div>
+
+        <!-- Encouragement Text -->
+        <p id="result-encouragement" class="text-base sm:text-lg text-ink-muted italic font-serif max-w-xl mx-auto leading-relaxed">
+          ...
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="max-w-md mx-auto space-y-3 pt-2">
+          <!-- "Keyingi ishtirokchi" Button -->
+          <button id="btn-next-participant" onclick="onNextParticipantClick()" class="w-full py-4 px-8 rounded-2xl bg-terracotta hover:bg-terracotta-dark text-white font-semibold text-base sm:text-lg shadow-warm hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-98">
+            <span>Keyingi ishtirokchi</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+
+          <!-- "Bonus topshiriqni boshlash" Button (Faqat 0/3 olganlar uchun) -->
+          <button id="btn-go-to-bonus" onclick="startBonusTask()" class="hidden w-full py-4 px-8 rounded-2xl bg-sage-dark hover:bg-sage text-white font-semibold text-base sm:text-lg shadow-warm hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-98">
+            <span>Bonus topshiriq (Hikmatli so'zlar)</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. BONUS TASK SECTION (Faqat 0/3 olganlar uchun) -->
+    <!-- ============================================================ -->
+    <section id="bonus-section" class="hidden scroll-mt-20 space-y-5 fade-in">
+      <div class="border-b border-sand-dark pb-3">
+        <span class="text-xs uppercase tracking-wider text-sage-dark font-bold">Maxsus qo'shimcha imkoniyat</span>
+        <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-ink">Hikmatli So'zlar: Bonus Topshiriq</h2>
+        <p class="text-xs sm:text-sm text-ink-muted mt-1">
+          Faqat 0/3 ball to'plagan ishtirokchi uchun donishmandlar hikmatidan maxsus savol
+        </p>
+      </div>
+
+      <div class="bg-sand/75 rounded-3xl p-6 sm:p-10 border border-sand-dark shadow-warm space-y-6">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-ink-muted font-bold block mb-2">
+            Ushbu mashhur hikmatli so'z muallifini toping:
+          </span>
+          <div class="bg-ivory p-6 sm:p-8 rounded-2xl border border-sand-dark relative shadow-xs">
+            <span class="font-serif text-5xl text-sage-dark/40 absolute top-2 left-4 select-none">“</span>
+            <p id="bonus-quote-text" class="font-serif italic text-xl sm:text-2xl text-ink leading-relaxed px-6 pt-2 pb-2">
+              ...
+            </p>
+            <span class="font-serif text-5xl text-sage-dark/40 absolute bottom-2 right-4 select-none">”</span>
+          </div>
+        </div>
+
+        <!-- 3 Author Options for Bonus -->
+        <div id="bonus-options-container" class="space-y-3.5">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Bonus Feedback Box -->
+        <div id="bonus-feedback-box" class="hidden p-5 rounded-2xl text-center space-y-3 shadow-sm">
+          <p id="bonus-feedback-text" class="text-base font-semibold"></p>
+          <div id="bonus-action-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. FINAL LEADERBOARD SECTION (Bugungi G'oliblar) -->
+    <!-- ============================================================ -->
+    <section id="leaderboard-section" class="scroll-mt-20 space-y-6">
+      <div class="flex items-end justify-between border-b border-sand-dark pb-3">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-terracotta font-bold">Natijalar jadvali</span>
+          <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-ink">Bugungi g'oliblar</h2>
+        </div>
+        <button onclick="resetGame()" class="text-xs sm:text-sm text-terracotta hover:text-terracotta-dark hover:underline font-semibold flex items-center gap-1.5 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          Qayta boshlash
+        </button>
+      </div>
+
+      <!-- Podium for Top 3 (1st, 2nd, 3rd) Widescreen -->
+      <div id="podium-container" class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 items-end">
+        
+        <!-- 2nd Place -->
+        <div class="bg-sand rounded-3xl p-4 sm:p-6 text-center border border-sand-dark flex flex-col justify-end h-48 sm:h-56 shadow-sm relative transition-all hover:-translate-y-1">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-200 text-ink font-bold text-sm sm:text-base flex items-center justify-center border-2 border-white shadow-xs">
+            2
+          </div>
+          <div id="podium-2-name" class="font-serif-title font-bold text-lg sm:text-2xl text-ink truncate">-</div>
+          <div id="podium-2-score" class="text-xs sm:text-sm text-ink-muted mt-1 font-bold">0 ball</div>
+          <div id="podium-2-time" class="text-xs text-ink-muted/80 font-mono">--:--</div>
+          <div class="mt-3 text-[11px] sm:text-xs uppercase font-bold text-terracotta tracking-wider bg-ivory py-1.5 rounded-full border border-sand-dark">
+            Sovg'a
+          </div>
+        </div>
+
+        <!-- 1st Place (Center, Taller, Crown) -->
+        <div class="bg-sand-dark/75 rounded-3xl p-4 sm:p-6 text-center border-2 border-gold/75 flex flex-col justify-end h-60 sm:h-72 shadow-md relative bg-gradient-to-t from-sand-dark/95 to-sand/40 transition-all hover:-translate-y-1.5">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400 text-ink font-bold text-lg sm:text-xl flex items-center justify-center shadow-md border-2 border-white">
+            👑
+          </div>
+          <div id="podium-1-name" class="font-serif-title font-bold text-xl sm:text-3xl text-ink truncate">-</div>
+          <div id="podium-1-score" class="text-sm sm:text-base text-terracotta mt-1 font-bold">0 ball</div>
+          <div id="podium-1-time" class="text-xs sm:text-sm text-ink-muted/80 font-mono">--:--</div>
+          <div class="mt-3 text-xs sm:text-sm uppercase font-bold text-white bg-terracotta py-2 rounded-full shadow-xs tracking-wider">
+            Sovg'a
+          </div>
+        </div>
+
+        <!-- 3rd Place -->
+        <div class="bg-sand rounded-3xl p-4 sm:p-6 text-center border border-sand-dark flex flex-col justify-end h-40 sm:h-48 shadow-sm relative transition-all hover:-translate-y-1">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-700/25 text-ink font-bold text-sm sm:text-base flex items-center justify-center border-2 border-white shadow-xs">
+            3
+          </div>
+          <div id="podium-3-name" class="font-serif-title font-bold text-lg sm:text-2xl text-ink truncate">-</div>
+          <div id="podium-3-score" class="text-xs sm:text-sm text-ink-muted mt-1 font-bold">0 ball</div>
+          <div id="podium-3-time" class="text-xs text-ink-muted/80 font-mono">--:--</div>
+          <div class="mt-3 text-[11px] sm:text-xs uppercase font-bold text-terracotta tracking-wider bg-ivory py-1.5 rounded-full border border-sand-dark">
+            Sovg'a
+          </div>
+        </div>
+
+      </div>
+
+      <!-- All Results List (2-column responsive layout) -->
+      <div class="bg-sand/60 rounded-3xl p-6 sm:p-8 border border-sand-dark space-y-4 shadow-sm">
+        <div class="flex items-center justify-between px-1">
+          <h4 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-ink-muted">
+            Barcha natijalar ro'yxati (18 ishtirokchi)
+          </h4>
+          <span id="leaderboard-total-count" class="text-xs sm:text-sm text-ink font-semibold">
+            0 ishtirokchi
+          </span>
+        </div>
+
+        <div id="full-leaderboard-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <!-- Populated by JS -->
+          <div class="col-span-full p-6 text-center text-ink-muted/70 italic bg-ivory/70 rounded-2xl border border-sand-dark/60">
+            Hozircha o'yin boshlanmadi. Yuqorida ishtirokchini tanlab, bellashuvni boshlang!
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Restart Button -->
+      <div class="text-center pt-2">
+        <button onclick="resetGame()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-sand hover:bg-sand-dark text-ink font-semibold text-base border border-sand-dark transition-all active:scale-95 shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          <span>Qayta boshlash</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- FOOTER -->
+  <!-- ============================================================== -->
+  <footer class="border-t border-sand-dark py-8 text-center text-xs sm:text-sm text-ink-muted bg-sand/35">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
+      <p class="font-serif text-base sm:text-lg font-semibold text-ink">
+        Falsafa Bellashuvi — 10-mavzu "Inson falsafasi" intellektual viktorinasi
+      </p>
+      <p class="text-xs text-ink-muted/80">
+        © 2026 Barcha huquqlar himoyalangan. Falsafa — insonning o'zini va dunyoni anglash yo'li.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- JAVASCRIPT GAME LOGIC & BANK -->
+  <!-- ============================================================== -->
+  <script>
+    // ----------------------------------------------------
+    // 1. DATA: 9 THINKERS (Exact order from read.md)
+    // ----------------------------------------------------
+    const THINKERS = [
+      {
+        id: 1,
+        name: "Lao Szi",
+        quote: "Boshqalarni biluvchi – oqil, o‘zini biluvchi – donishmanddir.",
+        image: "Lao-szi.jpg",
+        school: "Daosizm ta'limoti",
+        bio: "Qadimgi Xitoy faylasufi, Daosizm ta'limoti asoschisi"
+      },
+      {
+        id: 2,
+        name: "Protagor",
+        quote: "Inson barcha narsalar mezonidir.",
+        image: "protagor.webp",
+        school: "Antik Yunon falsafasi",
+        bio: "Qadimgi Yunoniston sofistika maktabining yirik vakili"
+      },
+      {
+        id: 3,
+        name: "Suqrot",
+        quote: "O‘z-o‘zingni angla va shu orqali dunyoni anglaysan.",
+        image: "suqrot.jpg",
+        school: "Klassik Antik falsafa",
+        bio: "G'arb falsafasi asoschilaridan biri, buyuk mutafakkir"
+      },
+      {
+        id: 4,
+        name: "Rene Dekart",
+        quote: "Inson – fikrlovchi narsadir.",
+        image: "rene-dekart.jpg",
+        school: "Yangi davr ratsionalizmi",
+        bio: "Fransuz faylasufi va matematigi, ratsionalizm asoschisi"
+      },
+      {
+        id: 5,
+        name: "Jan-Pol Sartr",
+        quote: "Inson – odamzod kelajagidir.",
+        image: "jan-pol-sartr.jpg",
+        school: "XX asr ekzistensializmi",
+        bio: "Mashhur fransuz yozuvchisi va ekzistensialist faylasufi"
+      },
+      {
+        id: 6,
+        name: "Ibn Sino",
+        quote: "Inson boshqa barcha hayvonot olamidan so‘zi, tili va aqli, tafakkur qilishi bilan farq qiladi.",
+        image: "ibn sino.jpg",
+        school: "Sharq Uyg'onish davri",
+        bio: "Buyuk qomusiy olim, tabib va faylasuf (Avitsenna)"
+      },
+      {
+        id: 7,
+        name: "Artur Shopengauer",
+        quote: "Inson – nuqsonli mavjudot hamda u tabiat xalturasidir.",
+        image: "shopengauer.jpg",
+        school: "Nemis irratsionalizmi",
+        bio: "Nemis faylasufi, iroda falsafasi va pessimizm muallifi"
+      },
+      {
+        id: 8,
+        name: "Konfutsiy",
+        quote: "O‘zingga ravo ko‘rmagan narsani o‘zgaga ham munosib ko‘rma.",
+        image: "konfutsiy.jpg",
+        school: "Konfutsiylik an'anasi",
+        bio: "Qadimgi Xitoy donishmandi, axloqiy ta'limot asoschisi"
+      },
+      {
+        id: 9,
+        name: "Iso at-Termiziy",
+        quote: "Qayerda bilim va ilmga e’tibor kamaysa, o‘sha yerda odamlar axloqan tubanlasha boshlaydilar.",
+        image: "iso-at-termiziy.jpg",
+        school: "Islom ma'rifati va hadisshunoslik",
+        bio: "Buyuk muhaddis, mutafakkir va alloma, Termiziy merosi"
+      }
+    ];
+
+    // 18 Initial Participants (exact names from read.md)
+    const INITIAL_PARTICIPANTS = [
+      "Gulsevar", "Rano", "Sabina", "Saodat", "Javohir", "Jafarbek", 
+      "Sarvinoz", "Nodira", "Madina", "Shahina", "Xurshida", "To'lqin", 
+      "Shohjahon", "Shahzoda", "Zarina", "Ruhshona", "Suhrob", "Ulug'oy"
+    ];
+
+    // ----------------------------------------------------
+    // 2. QUESTION BANK: SEMENAR10# (Inson falsafasi)
+    // 1-Oson, 2-O'rtacha, 3-Ozgina Mantiqiy
+    // ----------------------------------------------------
+    const QUESTIONS_LEVEL_1_EASY = [
+      {
+        question: "Falsafiy antropologiya qaysi mavzuni o'zining asosiy o'zagi va bosh tadqiqot predmeti deb hisoblaydi?",
+        options: ["Inson va uning borlig'ini", "Faqat kosmik fazoni", "Mashina va robotlarni"],
+        answer: "Inson va uning borlig'ini"
+      },
+      {
+        question: "Ibn Sinoning ta'kidlashicha, inson boshqa butun hayvonot olamidan qaysi asosiy xususiyati bilan farq qiladi?",
+        options: ["So'zi, tili va aqli, tafakkur qilishi bilan", "Jismoniy chaqqonligi va kuchi bilan", "Tabiat hodisalariga to'liq bo'ysunishi bilan"],
+        answer: "So'zi, tili va aqli, tafakkur qilishi bilan"
+      },
+      {
+        question: "Falsafada olam 'katta koinot' (makrokosm) deb atalsa, unga qiyosan inson qanday tushuncha bilan ta'riflanadi?",
+        options: ["Mikrokosm (kichik koinot)", "Megakosm (cheksiz fazo)", "Metakosm (virtual olam)"],
+        answer: "Mikrokosm (kichik koinot)"
+      },
+      {
+        question: "Abu Rayhon Beruniy odamlar fe'l-atvori, qiyofasi va tillarining xilma-xilligini nima bilan bog'laydi?",
+        options: ["Tabiiy geografik muhit, suv, havo va tuproqning turlichaligi bilan", "Faqat tasodifiy omillar bilan", "Sun'iy qonun-qoidalar bilan"],
+        answer: "Tabiiy geografik muhit, suv, havo va tuproqning turlichaligi bilan"
+      },
+      {
+        question: "'Inson fikrlovchi narsadir' (Cogito ergo sum) g'oyasini ilgari surgan mashhur faylasuf kim?",
+        options: ["Rene Dekart", "Jan-Pol Sartr", "Artur Shopengauer"],
+        answer: "Rene Dekart"
+      },
+      {
+        question: "Abu Nasr Forobiy ta'limotiga ko'ra, inson o'z ehtiyojlarini qondirishi va ma'naviy kamolotga erishishi uchun qayerda yashashi shart?",
+        options: ["Jamiyatda boshqalar bilan hamkorlikda", "Odamlardan butunlay ajralgan holda yolg'izlikda", "Faqat cho'lu biyobonda"],
+        answer: "Jamiyatda boshqalar bilan hamkorlikda"
+      },
+      {
+        question: "Insonga butun borliq va dunyoning markaziy o'qi sifatida qarovchi falsafiy ta'limot qanday ataladi?",
+        options: ["Antropotsentrizm", "Teotsentrizm", "Kosmotsentrizm"],
+        answer: "Antropotsentrizm"
+      },
+      {
+        question: "'Inson – mashina' nomli asar muallifi bo'lgan fransuz mutafakkiri kim?",
+        options: ["J. Lametri", "Avgustin", "Jan-Pol Sartr"],
+        answer: "J. Lametri"
+      },
+      {
+        question: "Insonning kelib chiqishi haqida tabiatning qonuniy rivojlanishi va biologik evolyutsiyasiga asoslangan nazariya kimga tegishli?",
+        options: ["Charlz Darvin", "Imom Buxoriy", "Foma Akvinskiy"],
+        answer: "Charlz Darvin"
+      },
+      {
+        question: "Qadimgi Hind falsafiy kitobi Vedalarda dastlabki yaxlit inson obrazi qaysi timsol orqali tasvirlangan?",
+        options: ["Purusha", "Sansara", "Karma"],
+        answer: "Purusha"
+      },
+      {
+        question: "O'rta asr mutafakkiri Origen inson degan tirik mavjudot qaysi uch unsurdan iborat deb ta'lim bergan?",
+        options: ["Jon, qalb va tana", "Boylik, aql va jism", "Suv, olov va havo"],
+        answer: "Jon, qalb va tana"
+      },
+      {
+        question: "Hadislarning ishonchliligini tahlil etib, 'Ilmga e'tibor kamaysa, axloq tubanlashadi' deb ta'kidlagan alloma kim?",
+        options: ["Iso at-Termiziy", "Avgustin", "Protagor"],
+        answer: "Iso at-Termiziy"
+      }
+    ];
+
+    const QUESTIONS_LEVEL_2_MEDIUM = [
+      {
+        question: "Sharq falsafasida inson borlig'iga berilgan baho G'arb antropotsentrizmidan qanday farq qiladi?",
+        options: [
+          "Inson dunyoning markazi emas, balki tabiatning uyg'un va ajralmas bo'lagidir",
+          "Inson tabiatdan butunlay ustun qo'yiladi",
+          "Sharq falsafasida inson umuman o'rganilmaydi"
+        ],
+        answer: "Inson dunyoning markazi emas, balki tabiatning uyg'un va ajralmas bo'lagidir"
+      },
+      {
+        question: "Insonni 'ichdan', ya'ni uning ongi, ruhiyati, ichki kechinmalari va instinktlari orqali anglash yondashuvi qanday ataladi?",
+        options: ["Introvertiv yondashuv", "Ekstrovertiv yondashuv", "Mexanistik yondashuv"],
+        answer: "Introvertiv yondashuv"
+      },
+      {
+        question: "Inson mohiyatini 'sirtdan' — jamiyat, koinot, tarix va tashqi borliq bilan munosabatlari orqali tahlil qiluvchi yo'nalish nima?",
+        options: ["Ekstrovertiv yondashuv", "Introvertiv yondashuv", "Okkultizm yondashuvi"],
+        answer: "Ekstrovertiv yondashuv"
+      },
+      {
+        question: "O'rta asr xristian falsafasida qadimgi yunon ratsionalizmidan farqli o'laroq, insonning qaysi tomoni ustun qo'yilgan?",
+        options: ["Aql-idrok o'rniga e'tiqod va inson erki (irodasi)", "Jismoniy go'zallik va kuch", "Iqtisodiy foyda va boylik"],
+        answer: "Aql-idrok o'rniga e'tiqod va inson erki (irodasi)"
+      },
+      {
+        question: "Ibn Xaldun ta'limotiga ko'ra, inson ziddiyatli jonzot sifatida doimo qaysi ikki qutb o'rtasida tanlov qilib yashaydi?",
+        options: [
+          "Yovuzlikdan ko'ra ezgulikka, nafratdan ko'ra muhabbatga intilish",
+          "Faqat shon-shuhrat va moddiy boylik ketidan quvish",
+          "Har doim urush va xotirjamlik"
+        ],
+        answer: "Yovuzlikdan ko'ra ezgulikka, nafratdan ko'ra muhabbatga intilish"
+      },
+      {
+        question: "Qadimgi Hind falsafasida inson ruhi va tanasining qayta tirilish va o'zgarishlar zanjiri (sansara) nima deb ataladi?",
+        options: ["Renkarnatsiya hodisasi", "Mifologik ertak", "Tabiat inqirozi"],
+        answer: "Renkarnatsiya hodisasi"
+      },
+      {
+        question: "O'rta asr mutafakkiri Foma Akvinskiy davlat va jamiyat boshqaruvining bosh vazifasi nimada bo'lishi kerak deb hisoblagan?",
+        options: ["Jamiyatning umumiy farovonligi haqida qayg'urish", "Barcha tabaqalarni tenglashtirish", "Faqat chet ellarga yurish qilish"],
+        answer: "Jamiyatning umumiy farovonligi haqida qayg'urish"
+      },
+      {
+        question: "Avgustin fikricha, inson nima sababdan ba'zida yaxshilikni bilsa ham nomaqbul ishlarga qo'l uradi?",
+        options: [
+          "Inson erki o'ziga to'liq bo'ysunmaydi va hirs-ehtiroslarga beriladi",
+          "Inson yaxshilik nima ekanini mutlaqo tushunmaydi",
+          "Qonunlar yo'qligi sababli"
+        ],
+        answer: "Inson erki o'ziga to'liq bo'ysunmaydi va hirs-ehtiroslarga beriladi"
+      },
+      {
+        question: "Antik davr faylasufi Protagorning 'Inson barcha narsalar mezonidir' tamoyili qaysi yondashuv zamirida yotadi?",
+        options: ["Antik falsafaning antropotsentrizmi", "Mexanistik determinizm", "Mistik okkultizm"],
+        answer: "Antik falsafaning antropotsentrizmi"
+      },
+      {
+        question: "P. T. de Sharden insonni dunyoning qotib qolgan markazi emas, balki nima deb ta'riflagan?",
+        options: ["Evolyutsiyaning cho'qqisi va o'zagi", "Tabiatning tasodifiy nuqsoni", "Mashinaning kichik bir murvati"],
+        answer: "Evolyutsiyaning cho'qqisi va o'zagi"
+      }
+    ];
+
+    const QUESTIONS_LEVEL_3_LOGICAL = [
+      {
+        question: "Delfi ibodatxonasidagi 'O'z-o'zingni angla' shiori 2500 yildan beri o'z kuchini yo'qotmaganining asosiy mantiqiy sababi nima?",
+        options: [
+          "Inson o'z mohiyatini anglamasdan turib, tashqi olam va jamiyat haqiqatini chuqur bila olmasligi",
+          "Qadimgi bitiklarni o'chirish taqiqlangani sababli",
+          "Dunyoda insoniyat uchun boshqa hech qanday savol qolmaganligi"
+        ],
+        answer: "Inson o'z mohiyatini anglamasdan turib, tashqi olam va jamiyat haqiqatini chuqur bila olmasligi"
+      },
+      {
+        question: "Fanda 'abadiy dvigatel' masalasida to'la bir fikrlilik bor, lekin falsafada 'inson nima?' savolida yagona yakuniy javob yo'qligining mantiqiy siri nimada?",
+        options: [
+          "Inson doimo o'zgaruvchi, murakkab, cheksiz ma'naviy va ziddiyatli subyekt bo'lgani uchun",
+          "Olimlar bu masalani hali umuman tadqiq qilmaganligi sababli",
+          "Texnika qonunlari insoniyat qadriyatlaridan ustun qo'yilgani uchun"
+        ],
+        answer: "Inson doimo o'zgaruvchi, murakkab, cheksiz ma'naviy va ziddiyatli subyekt bo'lgani uchun"
+      },
+      {
+        question: "Iso at-Termiziyning 'Bilim kamaysa, odamlar axloqan tubanlashadi' degan fikridan qanday mantiqiy zanjirli xulosa kelib chiqadi?",
+        options: [
+          "Bilimsizlik xurofot va g'iybatni kuchaytiradi, bu esa jamiyat ma'naviy inqiroziga sabab bo'ladi",
+          "Ilm faqat boylik to'plash uchun kerakli vosita hisoblanadi",
+          "Axloq va bilim bir-biriga mutlaqo aloqasiz sohalardir"
+        ],
+        answer: "Bilimsizlik xurofot va g'iybatni kuchaytiradi, bu esa jamiyat ma'naviy inqiroziga sabab bo'ladi"
+      },
+      {
+        question: "Forobiy ta'kidlagan 'Yolg'izlik insonni qashshoqlashtiradi va iste'dodini so'ndiradi' tezisidan qanday mantiqiy xulosa kelib chiqadi?",
+        options: [
+          "Insonning barcha yuksak fazilatlari faqat ijtimoiy munosabatlar va jamiyat hayotida kamol topadi",
+          "Inson yakka o'zi yashaganda ko'proq donishmand bo'lib qoladi",
+          "Jamiyat inson qobiliyatlarini faqat cheklaydi"
+        ],
+        answer: "Insonning barcha yuksak fazilatlari faqat ijtimoiy munosabatlar va jamiyat hayotida kamol topadi"
+      },
+      {
+        question: "Shopengauer insonni 'tabiat xalturasi (nuqsonli mavjudot)' desa, Sartr nima uchun insonni 'kelajak egasi' deb hisoblaydi?",
+        options: [
+          "Inson tayyor qolip emas, u o'z ongli tanlovi va intilishi bilan o'z kelajagini o'zi yaratadi",
+          "Inson barcha hayvonot olamidan jismonan kuchliroq bo'lgani sababli",
+          "Inson tabiat qonunlariga umuman e'tibor bermasligi kerakligi uchun"
+        ],
+        answer: "Inson tayyor qolip emas, u o'z ongli tanlovi va intilishi bilan o'z kelajagini o'zi yaratadi"
+      },
+      {
+        question: "Beruniyning 'Odamlarning tili va odatlari tabiiy muhitga bog'liq' degan xulosasining falsafiy mohiyati nimada?",
+        options: [
+          "Insoniyat madaniyati va tafakkuri tabiiy geografik sharoit bilan uzviy dialektik bog'liq",
+          "Barcha xalqlar darhol bitta tilga o'tishi shart",
+          "Tabiiy muhit inson fe'l-atvoriga mutlaqo ta'sir ko'rsatmaydi"
+        ],
+        answer: "Insoniyat madaniyati va tafakkuri tabiiy geografik sharoit bilan uzviy dialektik bog'liq"
+      },
+      {
+        question: "'Falsafa dunyoni inson orqali ichdan bilishdir, fan esa tashqaridagi dunyoni o'rganishdir' degan qoida nimani ifodalaydi?",
+        options: [
+          "Falsafa insoniy qadriyatlar va ma'no-mazmun prizmasiga tayanadi, fan esa obyektiv tashqi qonuniyatlarga",
+          "Falsafa va fan bir-birini doimo inkor etishi shart",
+          "Fan insoniyatga hech qanday foyda keltirmaydi"
+        ],
+        answer: "Falsafa insoniy qadriyatlar va ma'no-mazmun prizmasiga tayanadi, fan esa obyektiv tashqi qonuniyatlarga"
+      },
+      {
+        question: "Agar inson qarama-qarshi qismlardan iborat murakkab tana va ruh egasi bo'lsa, uni barkamol qilishning eng mantiqiy yo'li nima?",
+        options: [
+          "Aql, ilm va axloq orqali ichki qarama-qarshiliklarni uyg'unlikka keltirish",
+          "Faqat jismoniy mashg'ulotlar bilan cheklanish",
+          "Barcha ichki hissiyot va ruhiyatni so'ndirish"
+        ],
+        answer: "Aql, ilm va axloq orqali ichki qarama-qarshiliklarni uyg'unlikka keltirish"
+      }
+    ];
+
+    // ----------------------------------------------------
+    // 3. GAME STATE
+    // ----------------------------------------------------
+    let remainingParticipants = [...INITIAL_PARTICIPANTS];
+    let playedParticipants = []; // { name, score, timeSeconds }
+    let currentParticipant = null;
+
+    // Test questions state (3 levels for active participant)
+    let currentQuestions = [];
+    let currentQuestionIndex = 0;
+    let currentScore = 0;
+    let timerInterval = null;
+    let elapsedTime = 0;
+
+    // Bonus state (only for 0/3)
+    let bonusQuestion = null;
+    let bonusRetriesLeft = 1;
+
+    // Thinkers Carousel
+    let currentThinkerIndex = 0;
+
+    // ----------------------------------------------------
+    // 4. SOUND SYNTHESIZER (Web Audio API)
+    // ----------------------------------------------------
+    const Sound = {
+      ctx: null,
+      enabled: true,
+      init() {
+        if (!this.ctx && typeof AudioContext !== 'undefined') {
+          this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+      },
+      play(type) {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          const now = this.ctx.currentTime;
+          
+          if (type === 'tick') {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(580, now);
+            gain.gain.setValueAtTime(0.03, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+            osc.start(now);
+            osc.stop(now + 0.04);
+          } else if (type === 'pick') {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(440, now);
+            osc.frequency.exponentialRampToValueAtTime(880, now + 0.15);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.start(now);
+            osc.stop(now + 0.2);
+          } else if (type === 'correct') {
+            [523.25, 659.25].forEach((freq, i) => {
+              const o = this.ctx.createOscillator();
+              const g = this.ctx.createGain();
+              o.connect(g);
+              g.connect(this.ctx.destination);
+              o.type = 'sine';
+              o.frequency.value = freq;
+              const t = now + i * 0.1;
+              g.gain.setValueAtTime(0.07, t);
+              g.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
+              o.start(t);
+              o.stop(t + 0.28);
+            });
+          } else if (type === 'incorrect') {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(240, now);
+            osc.frequency.setValueAtTime(190, now + 0.12);
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            osc.start(now);
+            osc.stop(now + 0.28);
+          } else if (type === 'celebrate') {
+            [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+              const o = this.ctx.createOscillator();
+              const g = this.ctx.createGain();
+              o.connect(g);
+              g.connect(this.ctx.destination);
+              o.type = 'sine';
+              o.frequency.value = freq;
+              const t = now + i * 0.08;
+              g.gain.setValueAtTime(0.08, t);
+              g.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+              o.start(t);
+              o.stop(t + 0.35);
+            });
+          }
+        } catch(e) {}
+      }
+    };
+
+    function toggleSound() {
+      Sound.enabled = !Sound.enabled;
+      document.getElementById('sound-icon').textContent = Sound.enabled ? '🔔' : '🔕';
+      const btn = document.getElementById('sound-toggle-btn');
+      if (Sound.enabled) {
+        btn.classList.remove('opacity-50');
+        Sound.play('tick');
+      } else {
+        btn.classList.add('opacity-50');
+      }
+    }
+
+    // ----------------------------------------------------
+    // 5. INITIALIZATION & LOCALSTORAGE
+    // ----------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSavedState();
+      renderThinkerCarousel();
+      renderParticipantCards();
+      updateHeaderProgress();
+      renderLeaderboard();
+      setupKeyboardNav();
+    });
+
+    function saveGameState() {
+      try {
+        const state = {
+          remaining: remainingParticipants,
+          played: playedParticipants
+        };
+        localStorage.setItem('falsafa_game_state_v2', JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function loadSavedState() {
+      try {
+        const saved = localStorage.getItem('falsafa_game_state_v2');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed.remaining) && Array.isArray(parsed.played)) {
+            remainingParticipants = parsed.remaining;
+            playedParticipants = parsed.played;
+          }
+        }
+      } catch (e) {}
+    }
+
+    function scrollToGame() {
+      Sound.play('tick');
+      document.getElementById('participant-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ----------------------------------------------------
+    // 6. THINKERS CAROUSEL
+    // ----------------------------------------------------
+    function renderThinkerCarousel() {
+      const thinker = THINKERS[currentThinkerIndex];
+      const card = document.getElementById('thinker-card');
+      card.style.opacity = '0';
+
+      setTimeout(() => {
+        document.getElementById('thinker-index-label').textContent = currentThinkerIndex + 1;
+        document.getElementById('thinker-tag-num').textContent = currentThinkerIndex + 1;
+        document.getElementById('thinker-badge-school').textContent = thinker.school || "Mutafakkir";
+        document.getElementById('thinker-name').textContent = thinker.name;
+        document.getElementById('thinker-bio').textContent = thinker.bio;
+        document.getElementById('thinker-quote').textContent = thinker.quote;
+
+        const imgEl = document.getElementById('thinker-image');
+        const fallbackEl = document.getElementById('thinker-image-fallback');
+        const fallbackNameEl = document.getElementById('thinker-fallback-name');
+
+        fallbackNameEl.textContent = thinker.name + " surati joyi";
+
+        if (thinker.image) {
+          imgEl.src = thinker.image;
+          imgEl.classList.remove('hidden');
+          fallbackEl.classList.add('hidden');
+        } else {
+          imgEl.classList.add('hidden');
+          fallbackEl.classList.remove('hidden');
+        }
+
+        renderCarouselDots();
+        card.style.opacity = '1';
+      }, 140);
+    }
+
+    function renderCarouselDots() {
+      const dotsContainer = document.getElementById('carousel-dots');
+      dotsContainer.innerHTML = '';
+      THINKERS.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.setAttribute('aria-label', `Mutafakkir ${idx + 1}`);
+        dot.className = `h-2 rounded-full transition-all duration-300 ${
+          idx === currentThinkerIndex 
+            ? 'bg-terracotta w-6' 
+            : 'bg-sand-dark hover:bg-ink-muted/40 w-2'
+        }`;
+        dot.onclick = () => {
+          Sound.play('tick');
+          currentThinkerIndex = idx;
+          renderThinkerCarousel();
+        };
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function nextThinker() {
+      Sound.play('tick');
+      currentThinkerIndex = (currentThinkerIndex + 1) % THINKERS.length;
+      renderThinkerCarousel();
+    }
+
+    function prevThinker() {
+      Sound.play('tick');
+      currentThinkerIndex = (currentThinkerIndex - 1 + THINKERS.length) % THINKERS.length;
+      renderThinkerCarousel();
+    }
+
+    function handleImageError(img) {
+      img.classList.add('hidden');
+      const fallback = document.getElementById('thinker-image-fallback');
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    function uploadThinkerImage(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        THINKERS[currentThinkerIndex].image = evt.target.result;
+        renderThinkerCarousel();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // ----------------------------------------------------
+    // 7. PARTICIPANT PICKER (18 Participants)
+    // ----------------------------------------------------
+    function renderParticipantCards() {
+      const grid = document.getElementById('participant-cards-grid');
+      const countBadge = document.getElementById('chips-count-badge');
+      grid.innerHTML = '';
+
+      countBadge.textContent = `${remainingParticipants.length} ta qoldi`;
+
+      INITIAL_PARTICIPANTS.forEach(name => {
+        const hasPlayed = playedParticipants.some(p => p.name === name);
+        const isCurrent = (currentParticipant === name);
+
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-xl border transition-all text-left flex items-center justify-between ${
+          isCurrent 
+            ? 'bg-terracotta/15 border-terracotta text-terracotta-dark font-bold shadow-xs' 
+            : hasPlayed 
+              ? 'bg-ivory/40 border-sand-dark/50 text-ink-muted/60 opacity-60' 
+              : 'bg-ivory border-sand-dark text-ink font-medium hover:border-terracotta/40 shadow-2xs'
+        }`;
+
+        let statusText = "Kutmoqda";
+        let statusBadge = "bg-sand text-ink-muted";
+
+        if (isCurrent) {
+          statusText = "Navbatda";
+          statusBadge = "bg-terracotta text-white font-bold animate-pulse";
+        } else if (hasPlayed) {
+          const record = playedParticipants.find(p => p.name === name);
+          statusText = `${record.score}/3 ball`;
+          statusBadge = record.score === 3 ? "bg-amber-100 text-amber-900 font-bold" : "bg-sand-dark text-ink-muted";
+        }
+
+        card.innerHTML = `
+          <div class="truncate pr-2">
+            <span class="text-xs sm:text-sm font-semibold truncate">${name}</span>
+          </div>
+          <span class="text-[10.5px] px-2 py-0.5 rounded-full ${statusBadge} shrink-0">
+            ${statusText}
+          </span>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function updateHeaderProgress() {
+      const count = playedParticipants.length;
+      document.getElementById('played-count').textContent = count;
+      document.getElementById('nav-badge').textContent = `${count} / 18 Qatnashdi`;
+
+      const note = document.getElementById('pool-remaining-note');
+      if (note) {
+        note.textContent = remainingParticipants.length > 0
+          ? `Hali ${remainingParticipants.length} nafar ishtirokchi kutmoqda`
+          : `Barcha 18 nafar ishtirokchi sinovdan o'tdi`;
+      }
+    }
+
+    function pickRandomParticipant() {
+      if (remainingParticipants.length === 0) {
+        alert("Barcha 18 nafar ishtirokchi o'yinda qatnashib bo'ldi! Yakuniy natijalar jadvalini ko'ring.");
+        document.getElementById('leaderboard-section').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      const display = document.getElementById('selected-participant-name');
+      const pickBtn = document.getElementById('btn-random-pick');
+      const startBtn = document.getElementById('btn-start-test');
+
+      pickBtn.disabled = true;
+      startBtn.classList.add('hidden');
+      display.classList.add('animate-shuffle', 'text-ink-muted');
+
+      let counter = 0;
+      let delay = 60;
+      
+      function step() {
+        const randTemp = remainingParticipants[Math.floor(Math.random() * remainingParticipants.length)];
+        display.textContent = randTemp;
+        Sound.play('tick');
+        counter++;
+
+        if (counter < 18) {
+          delay += 10;
+          setTimeout(step, delay);
+        } else {
+          display.classList.remove('animate-shuffle', 'text-ink-muted');
+          const chosenIndex = Math.floor(Math.random() * remainingParticipants.length);
+          currentParticipant = remainingParticipants[chosenIndex];
+          
+          display.textContent = currentParticipant;
+          display.classList.add('text-terracotta');
+          Sound.play('pick');
+
+          pickBtn.disabled = false;
+          startBtn.classList.remove('hidden');
+          renderParticipantCards();
+        }
+      }
+
+      step();
+    }
+
+    // ----------------------------------------------------
+    // 8. TEST EXECUTION: SEMENAR10# (1-Oson, 2-O'rtacha, 3-Mantiqiy)
+    // ----------------------------------------------------
+    function startTestForParticipant() {
+      if (!currentParticipant) return;
+      Sound.play('tick');
+
+      // Remove chosen participant from remaining pool
+      remainingParticipants = remainingParticipants.filter(p => p !== currentParticipant);
+      saveGameState();
+      renderParticipantCards();
+      updateHeaderProgress();
+
+      // Dynamically select 3 distinct questions:
+      // 1-savol: Level 1 (Oson)
+      // 2-savol: Level 2 (O'rtacha)
+      // 3-savol: Level 3 (Ozgina Mantiqiy)
+      const q1 = QUESTIONS_LEVEL_1_EASY[Math.floor(Math.random() * QUESTIONS_LEVEL_1_EASY.length)];
+      const q2 = QUESTIONS_LEVEL_2_MEDIUM[Math.floor(Math.random() * QUESTIONS_LEVEL_2_MEDIUM.length)];
+      const q3 = QUESTIONS_LEVEL_3_LOGICAL[Math.floor(Math.random() * QUESTIONS_LEVEL_3_LOGICAL.length)];
+
+      currentQuestions = [
+        { ...q1, levelName: "1-savol: Oson", pillColor: "bg-sage-light text-sage-dark border-sage/40" },
+        { ...q2, levelName: "2-savol: O'rtacha", pillColor: "bg-sand text-ink border-sand-dark" },
+        { ...q3, levelName: "3-savol: Mantiqiy", pillColor: "bg-amber-100 text-amber-900 border-amber-300" }
+      ];
+
+      currentQuestionIndex = 0;
+      currentScore = 0;
+      elapsedTime = 0;
+
+      // Switch views
+      document.getElementById('participant-section').classList.add('hidden');
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('bonus-section').classList.add('hidden');
+      document.getElementById('test-section').classList.remove('hidden');
+
+      document.getElementById('test-player-name').textContent = currentParticipant;
+
+      startTimer();
+      renderTestQuestion();
+      document.getElementById('test-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      const timerEl = document.getElementById('test-timer');
+      timerEl.textContent = "00:00";
+      timerInterval = setInterval(() => {
+        elapsedTime++;
+        const mins = String(Math.floor(elapsedTime / 60)).padStart(2, '0');
+        const secs = String(elapsedTime % 60).padStart(2, '0');
+        timerEl.textContent = `${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+    function renderTestQuestion() {
+      const q = currentQuestions[currentQuestionIndex];
+      
+      const difficultyPill = document.getElementById('test-difficulty-pill');
+      difficultyPill.textContent = q.levelName;
+      difficultyPill.className = `text-xs sm:text-sm px-4 py-1.5 rounded-full font-bold border shadow-2xs ${q.pillColor}`;
+
+      document.getElementById('test-step-indicator').textContent = `${currentQuestionIndex + 1} / 3`;
+      document.getElementById('question-text').textContent = q.question;
+
+      const feedbackBox = document.getElementById('test-feedback-box');
+      feedbackBox.className = 'hidden';
+      feedbackBox.textContent = '';
+
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      // Shuffle options copy
+      const shuffledOptions = [...q.options].sort(() => 0.5 - Math.random());
+
+      shuffledOptions.forEach((optionText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full py-4 px-6 rounded-2xl bg-ivory hover:bg-sand text-ink text-left font-medium border border-sand-dark transition-all flex items-center justify-between active:scale-98 shadow-sm group";
+        btn.innerHTML = `
+          <div class="flex items-center gap-3.5 pr-2">
+            <span class="w-8 h-8 rounded-full bg-sand text-ink-muted text-xs sm:text-sm font-bold flex items-center justify-center border border-sand-dark/60 font-mono group-hover:bg-terracotta group-hover:text-white transition-colors shrink-0">
+              ${idx + 1}
+            </span>
+            <span class="text-base sm:text-lg font-medium text-ink leading-snug">${optionText}</span>
+          </div>
+          <span class="w-7 h-7 rounded-full bg-sand-light flex items-center justify-center text-xs text-ink-muted group-hover:translate-x-1 transition-transform shrink-0">→</span>
+        `;
+        btn.onclick = () => handleAnswerSelect(optionText, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleAnswerSelect(selectedAnswer, clickedBtn) {
+      const q = currentQuestions[currentQuestionIndex];
+      const isCorrect = (selectedAnswer === q.answer);
+      const feedbackBox = document.getElementById('test-feedback-box');
+      const allButtons = document.querySelectorAll('#options-container button');
+
+      allButtons.forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        currentScore++;
+        Sound.play('correct');
+        clickedBtn.classList.remove('bg-ivory');
+        clickedBtn.classList.add('bg-sage-light', 'border-sage-dark', 'text-sage-dark');
+        feedbackBox.className = 'p-5 rounded-2xl text-center text-base font-semibold bg-sage-light text-sage-dark border border-sage';
+        feedbackBox.innerHTML = `✓ <strong>To'g'ri javob!</strong> Barakalla, fikrlashingiz a'lo darajada.`;
+      } else {
+        Sound.play('incorrect');
+        clickedBtn.classList.remove('bg-ivory');
+        clickedBtn.classList.add('bg-terracotta-light', 'border-terracotta', 'text-terracotta-dark');
+        feedbackBox.className = 'p-5 rounded-2xl text-center text-base font-semibold bg-terracotta-light text-terracotta-dark border border-terracotta/40';
+        feedbackBox.innerHTML = `✗ <strong>Noto'g'ri.</strong> To'g'ri javob: <em>"${q.answer}"</em> edi.`;
+      }
+
+      feedbackBox.classList.remove('hidden');
+
+      setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < 3) {
+          renderTestQuestion();
+        } else {
+          finishTest();
+        }
+      }, 1300);
+    }
+
+    function finishTest() {
+      stopTimer();
+
+      playedParticipants.push({
+        name: currentParticipant,
+        score: currentScore,
+        timeSeconds: elapsedTime
+      });
+
+      saveGameState();
+      renderParticipantCards();
+      renderLeaderboard();
+      updateHeaderProgress();
+
+      showResultSticker(currentParticipant, currentScore, elapsedTime);
+    }
+
+    // ----------------------------------------------------
+    // 9. RESULT STICKERS (Flat Illustrated Badges)
+    // ----------------------------------------------------
+    function showResultSticker(name, score, time) {
+      document.getElementById('test-section').classList.add('hidden');
+      document.getElementById('result-section').classList.remove('hidden');
+
+      const container = document.getElementById('sticker-badge-container');
+      const artEl = document.getElementById('sticker-badge-art');
+      const wordEl = document.getElementById('sticker-badge-word');
+      const userEl = document.getElementById('sticker-badge-user');
+      const scoreEl = document.getElementById('sticker-badge-score');
+      const timeEl = document.getElementById('sticker-badge-time');
+      const encouragementEl = document.getElementById('result-encouragement');
+      const nextBtn = document.getElementById('btn-next-participant');
+      const bonusBtn = document.getElementById('btn-go-to-bonus');
+
+      userEl.textContent = name;
+      const mins = String(Math.floor(time / 60)).padStart(2, '0');
+      const secs = String(time % 60).padStart(2, '0');
+      timeEl.textContent = `Vaqt sarfi: ${mins}:${secs}`;
+      scoreEl.textContent = `${score} / 3 Ball`;
+
+      container.className = "sticker-stamp relative max-w-md mx-auto p-8 rounded-3xl border-2 shadow-lg transition-all";
+
+      if (score === 3) {
+        // 3/3: "Zo'r!" sticker with big smile and celebration icon
+        Sound.play('celebrate');
+        launchConfetti();
+        container.classList.add('bg-amber-50', 'border-amber-400', 'text-amber-950');
+        wordEl.textContent = "Zo'r!";
+        wordEl.className = "font-serif-title text-5xl font-bold tracking-tight text-amber-900 mb-1";
+        scoreEl.className = "inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-200 text-amber-950";
+        encouragementEl.textContent = "Qoyilmaqom natija! Siz inson falsafasi va antropologiya mavzusini mukammal o'zlashtirgansiz.";
+
+        artEl.innerHTML = `
+          <div class="relative w-24 h-24 rounded-full bg-amber-100 border-2 border-amber-300 flex items-center justify-center shadow-inner">
+            <span class="text-5xl animate-bounce">🥳</span>
+            <span class="absolute -top-1 -right-1 text-2xl">✨</span>
+            <span class="absolute -bottom-1 -left-1 text-2xl">🌟</span>
+          </div>
+        `;
+
+        bonusBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+
+      } else if (score === 2) {
+        // 2/3: "A'lo!" sticker with happy smile
+        Sound.play('correct');
+        container.classList.add('bg-sage-light', 'border-sage', 'text-sage-dark');
+        wordEl.textContent = "A'lo!";
+        wordEl.className = "font-serif-title text-5xl font-bold tracking-tight text-sage-dark mb-1";
+        scoreEl.className = "inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-sage/35 text-sage-dark";
+        encouragementEl.textContent = "Juda ajoyib natija! Falsafiy mushohada va tahlil qobiliyatingiz yuksak.";
+
+        artEl.innerHTML = `
+          <div class="relative w-24 h-24 rounded-full bg-sage/20 border-2 border-sage flex items-center justify-center shadow-inner">
+            <span class="text-5xl">😊</span>
+            <span class="absolute -top-1 -right-1 text-xl">🌿</span>
+          </div>
+        `;
+
+        bonusBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+
+      } else if (score === 1) {
+        // 1/3: "Yaxshi" sticker with neutral-positive face
+        Sound.play('pick');
+        container.classList.add('bg-sand-light', 'border-sand-dark', 'text-ink');
+        wordEl.textContent = "Yaxshi";
+        wordEl.className = "font-serif-title text-4xl font-bold tracking-tight text-ink mb-1";
+        scoreEl.className = "inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-sand text-ink";
+        encouragementEl.textContent = "Yaxshi ishtirok! Falsafa doimo yangi savollar va teran izlanishlarga chorlaydi.";
+
+        artEl.innerHTML = `
+          <div class="relative w-24 h-24 rounded-full bg-sand border-2 border-sand-dark flex items-center justify-center shadow-inner">
+            <span class="text-5xl">🙂</span>
+            <span class="absolute -bottom-1 -right-1 text-xl">📖</span>
+          </div>
+        `;
+
+        bonusBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+
+      } else {
+        // 0/3: "Yomon" sticker with cute sad face and slightly wobbly shape
+        // ONLY 0/3 triggers Bonus Task from wisdom quotes!
+        Sound.play('incorrect');
+        container.classList.add('bg-stone-50', 'border-stone-300', 'text-stone-700', 'sticker-wobble');
+        wordEl.textContent = "Yomon";
+        wordEl.className = "font-serif-title text-4xl font-bold tracking-tight text-stone-700 mb-1";
+        scoreEl.className = "inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-stone-200 text-stone-700";
+        encouragementEl.textContent = "Hech qisi yo'q! Falsafada xatolar ham buyuk kashfiyotlar sari yo'ldir. Siz uchun buyuk mutafakkirlar hikmatidan maxsus bonus savol tayyorlandi!";
+
+        artEl.innerHTML = `
+          <div class="relative w-24 h-24 rounded-full bg-stone-200/80 border-2 border-stone-300 flex items-center justify-center shadow-inner">
+            <span class="text-5xl">🥺</span>
+            <span class="absolute -top-1 -right-1 text-xl">💭</span>
+          </div>
+        `;
+
+        bonusBtn.classList.remove('hidden');
+        nextBtn.classList.add('hidden');
+      }
+
+      if (remainingParticipants.length === 0 && score > 0) {
+        nextBtn.innerHTML = `<span>Barcha o'yin tugadi. Yakuniy g'oliblarni ko'rish</span>`;
+      } else {
+        nextBtn.innerHTML = `<span>Keyingi ishtirokchi</span> <svg class="w-5 h-5 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>`;
+      }
+
+      document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function onNextParticipantClick() {
+      Sound.play('tick');
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('bonus-section').classList.add('hidden');
+
+      if (remainingParticipants.length > 0) {
+        document.getElementById('participant-section').classList.remove('hidden');
+        document.getElementById('btn-start-test').classList.add('hidden');
+        document.getElementById('selected-participant-name').textContent = "(Tasodifiy tanlashni bosing)";
+        document.getElementById('selected-participant-name').className = "font-serif-title text-3xl sm:text-4xl lg:text-5xl font-bold text-terracotta min-h-[58px] flex items-center justify-center transition-all";
+        document.getElementById('participant-section').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        document.getElementById('leaderboard-section').scrollIntoView({ behavior: 'smooth' });
+        launchConfetti();
+      }
+    }
+
+    // ----------------------------------------------------
+    // 10. BONUS TASK (ONLY FOR 0/3 SCORE: HIKMATLI SO'ZLAR)
+    // ----------------------------------------------------
+    function startBonusTask() {
+      Sound.play('tick');
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('bonus-section').classList.remove('hidden');
+      bonusRetriesLeft = 1;
+
+      // Random thinker wisdom quote from the 9 thinkers
+      const target = THINKERS[Math.floor(Math.random() * THINKERS.length)];
+      const others = THINKERS.filter(t => t.id !== target.id).sort(() => 0.5 - Math.random());
+      const options = [target.name, others[0].name, others[1].name].sort(() => 0.5 - Math.random());
+
+      bonusQuestion = {
+        quote: target.quote,
+        correctAuthor: target.name,
+        options: options
+      };
+
+      renderBonusQuestion();
+      document.getElementById('bonus-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderBonusQuestion() {
+      document.getElementById('bonus-quote-text').textContent = bonusQuestion.quote;
+      const feedbackBox = document.getElementById('bonus-feedback-box');
+      feedbackBox.classList.add('hidden');
+      feedbackBox.className = 'hidden p-5 rounded-2xl text-center space-y-3';
+
+      const container = document.getElementById('bonus-options-container');
+      container.innerHTML = '';
+
+      bonusQuestion.options.forEach(authorName => {
+        const btn = document.createElement('button');
+        btn.className = "w-full py-4 px-6 rounded-2xl bg-ivory hover:bg-sand text-ink text-left font-medium border border-sand-dark transition-all flex items-center justify-between active:scale-98 shadow-sm group";
+        btn.innerHTML = `
+          <span class="font-serif text-lg sm:text-xl font-bold text-ink">${authorName}</span>
+          <span class="w-8 h-8 rounded-full bg-sand-light flex items-center justify-center text-xs text-ink-muted group-hover:scale-110 transition-transform">✦</span>
+        `;
+        btn.onclick = () => handleBonusAnswer(authorName, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleBonusAnswer(chosenAuthor, btn) {
+      const isCorrect = (chosenAuthor === bonusQuestion.correctAuthor);
+      const feedbackBox = document.getElementById('bonus-feedback-box');
+      const feedbackText = document.getElementById('bonus-feedback-text');
+      const actionContainer = document.getElementById('bonus-action-container');
+      const allButtons = document.querySelectorAll('#bonus-options-container button');
+
+      if (isCorrect) {
+        Sound.play('celebrate');
+        allButtons.forEach(b => b.disabled = true);
+        feedbackBox.className = "p-6 rounded-2xl text-center space-y-3 bg-sage-light text-sage-dark border border-sage";
+        feedbackText.innerHTML = `🎉 <strong>Barakalla!</strong> To'g'ri topdingiz! Hikmat muallifi: <em>${bonusQuestion.correctAuthor}</em>.`;
+        actionContainer.innerHTML = `
+          <button onclick="onNextParticipantClick()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-sage-dark text-white font-semibold text-base shadow-sm hover:bg-sage transition-all active:scale-95">
+            <span>Keyingisini tanla</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        `;
+        feedbackBox.classList.remove('hidden');
+      } else {
+        Sound.play('incorrect');
+        if (bonusRetriesLeft > 0) {
+          bonusRetriesLeft--;
+          feedbackBox.className = "p-5 rounded-2xl text-center space-y-3 bg-sand text-ink border border-sand-dark";
+          feedbackText.innerHTML = `Hali imkoniyat bor! Shoshilmang, yana bir bor fikrlab ko'ring.`;
+          actionContainer.innerHTML = `
+            <button onclick="retryBonus()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-terracotta text-white font-semibold text-sm shadow-xs hover:bg-terracotta-dark active:scale-95">
+              <span>Qayta urinish</span>
+            </button>
+          `;
+          feedbackBox.classList.remove('hidden');
+        } else {
+          allButtons.forEach(b => b.disabled = true);
+          feedbackBox.className = "p-5 rounded-2xl text-center space-y-3 bg-sand-dark/50 text-ink-muted border border-sand-dark";
+          feedbackText.innerHTML = `To'g'ri javob: <strong>${bonusQuestion.correctAuthor}</strong> edi. Harakat qilganingiz uchun tashakkur!`;
+          actionContainer.innerHTML = `
+            <button onclick="onNextParticipantClick()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-terracotta text-white font-semibold text-base shadow-sm hover:bg-terracotta-dark active:scale-95">
+              <span>Keyingisini tanla</span>
+            </button>
+          `;
+          feedbackBox.classList.remove('hidden');
+        }
+      }
+    }
+
+    function retryBonus() {
+      Sound.play('tick');
+      const feedbackBox = document.getElementById('bonus-feedback-box');
+      feedbackBox.classList.add('hidden');
+      const allButtons = document.querySelectorAll('#bonus-options-container button');
+      allButtons.forEach(b => b.disabled = false);
+    }
+
+    // ----------------------------------------------------
+    // 11. LEADERBOARD & PODIUM (Bugungi g'oliblar)
+    // ----------------------------------------------------
+    function renderLeaderboard() {
+      // Sort rule:
+      // 1) Higher score first
+      // 2) Faster total time first
+      const sorted = [...playedParticipants].sort((a, b) => {
+        if (b.score !== a.score) {
+          return b.score - a.score;
+        }
+        return a.timeSeconds - b.timeSeconds;
+      });
+
+      const p1Name = document.getElementById('podium-1-name');
+      const p1Score = document.getElementById('podium-1-score');
+      const p1Time = document.getElementById('podium-1-time');
+
+      const p2Name = document.getElementById('podium-2-name');
+      const p2Score = document.getElementById('podium-2-score');
+      const p2Time = document.getElementById('podium-2-time');
+
+      const p3Name = document.getElementById('podium-3-name');
+      const p3Score = document.getElementById('podium-3-score');
+      const p3Time = document.getElementById('podium-3-time');
+
+      const formatTime = (sec) => {
+        if (sec === undefined || sec === null) return "--:--";
+        const m = String(Math.floor(sec / 60)).padStart(2, '0');
+        const s = String(sec % 60).padStart(2, '0');
+        return `${m}:${s}`;
+      };
+
+      if (sorted[0]) {
+        p1Name.textContent = sorted[0].name;
+        p1Score.textContent = `${sorted[0].score} ball`;
+        p1Time.textContent = formatTime(sorted[0].timeSeconds);
+      } else {
+        p1Name.textContent = "-";
+        p1Score.textContent = "0 ball";
+        p1Time.textContent = "--:--";
+      }
+
+      if (sorted[1]) {
+        p2Name.textContent = sorted[1].name;
+        p2Score.textContent = `${sorted[1].score} ball`;
+        p2Time.textContent = formatTime(sorted[1].timeSeconds);
+      } else {
+        p2Name.textContent = "-";
+        p2Score.textContent = "0 ball";
+        p2Time.textContent = "--:--";
+      }
+
+      if (sorted[2]) {
+        p3Name.textContent = sorted[2].name;
+        p3Score.textContent = `${sorted[2].score} ball`;
+        p3Time.textContent = formatTime(sorted[2].timeSeconds);
+      } else {
+        p3Name.textContent = "-";
+        p3Score.textContent = "0 ball";
+        p3Time.textContent = "--:--";
+      }
+
+      document.getElementById('leaderboard-total-count').textContent = `${sorted.length} / 18 ishtirokchi`;
+
+      const listContainer = document.getElementById('full-leaderboard-list');
+      if (sorted.length === 0) {
+        listContainer.innerHTML = `
+          <div class="col-span-full p-6 text-center text-ink-muted/70 italic bg-ivory/70 rounded-2xl border border-sand-dark/60">
+            Hozircha o'yin boshlanmadi. Yuqorida ishtirokchini tanlab, bellashuvni boshlang!
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = '';
+      sorted.forEach((p, index) => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between p-3.5 rounded-xl bg-ivory border border-sand-dark/70 hover:border-terracotta/40 transition-colors shadow-2xs";
+        row.innerHTML = `
+          <div class="flex items-center gap-3 truncate">
+            <span class="w-7 h-7 rounded-full ${index < 3 ? 'bg-terracotta text-white font-bold' : 'bg-sand text-ink-muted font-semibold'} text-xs flex items-center justify-center font-mono shrink-0">
+              ${index + 1}
+            </span>
+            <span class="font-bold text-ink truncate text-sm sm:text-base">${p.name}</span>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-terracotta font-bold text-sm sm:text-base">${p.score}/3 ball</span>
+            <span class="font-mono text-ink-muted text-xs sm:text-sm font-semibold">${formatTime(p.timeSeconds)}</span>
+          </div>
+        `;
+        listContainer.appendChild(row);
+      });
+    }
+
+    function resetGame() {
+      if (playedParticipants.length > 0 && !confirm("O'yinni boshidan boshlashni istaysizmi? Barcha qatnashganlar ro'yxati va natijalari qayta o'rnatiladi.")) {
+        return;
+      }
+      Sound.play('tick');
+      remainingParticipants = [...INITIAL_PARTICIPANTS];
+      playedParticipants = [];
+      currentParticipant = null;
+      currentQuestions = [];
+      currentScore = 0;
+      elapsedTime = 0;
+      stopTimer();
+      localStorage.removeItem('falsafa_game_state_v2');
+
+      document.getElementById('test-section').classList.add('hidden');
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('bonus-section').classList.add('hidden');
+      document.getElementById('participant-section').classList.remove('hidden');
+
+      document.getElementById('selected-participant-name').textContent = "(Tasodifiy tanlashni bosing)";
+      document.getElementById('btn-start-test').classList.add('hidden');
+
+      renderParticipantCards();
+      updateHeaderProgress();
+      renderLeaderboard();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Keyboard support
+    function setupKeyboardNav() {
+      window.addEventListener('keydown', (e) => {
+        const testSection = document.getElementById('test-section');
+        if (testSection.classList.contains('hidden')) {
+          if (e.key === 'ArrowRight') nextThinker();
+          if (e.key === 'ArrowLeft') prevThinker();
+        } else {
+          if (['1', '2', '3'].includes(e.key)) {
+            const index = parseInt(e.key) - 1;
+            const buttons = document.querySelectorAll('#options-container button');
+            if (buttons[index] && !buttons[index].disabled) {
+              buttons[index].click();
+            }
+          }
+        }
+      });
+    }
+
+    // ----------------------------------------------------
+    // 12. CONFETTI GENERATOR (Pure Canvas 60fps)
+    // ----------------------------------------------------
+    function launchConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ['#B5654A', '#8FA596', '#C5993B', '#EDE4D3', '#1F2A36'];
+
+      for (let i = 0; i < 90; i++) {
+        particles.push({
+          x: canvas.width * 0.5,
+          y: canvas.height * 0.4,
+          r: Math.random() * 6 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.7) * 14,
+          alpha: 1,
+          rot: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+
+      let animId;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let active = false;
+
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.28;
+          p.alpha -= 0.012;
+          p.rot += p.rotSpeed;
+
+          if (p.alpha > 0) {
+            active = true;
+            ctx.save();
+            ctx.globalAlpha = p.alpha;
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rot * Math.PI) / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.r, -p.r, p.r * 2, p.r * 1.5);
+            ctx.restore();
+          }
+        });
+
+        if (active) {
+          animId = requestAnimationFrame(animate);
+        } else {
+          cancelAnimationFrame(animId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      animate();
+    }
+  </script>
+</body>
+</html>
